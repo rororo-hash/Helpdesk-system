@@ -1,14 +1,16 @@
-# Gunakan official PHP 8.1 dengan Apache
 FROM php:8.1-apache
 
-# Install extension PHP yang diperlukan
-RUN docker-php-ext-install mysqli mbstring
+# Pasang dependencies yang diperlukan untuk PHP extensions
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    zip \
+    unzip \
+    libonig-dev \
+    libxml2-dev \
+    && docker-php-ext-install mysqli mbstring zip
 
-# Salin semua fail projek ke folder web server
 COPY . /var/www/html/
 
-# Pastikan folder data boleh tulis
 RUN chown -R www-data:www-data /var/www/html/data
 
-# Buka port 80 untuk web
 EXPOSE 80
