@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <div class="login-container">
-    <h2>Login Admin</h2>
+    <h2>Ticket Management System</h2>
     <?php if ($error): ?>
         <div class="error"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Log Masuk</button>
     </form>
-    <div class="footer">Helpdesk System © <?= date("Y") ?></div>
+    <div class="footer">Dev by Rororo | Helpdesk System © <?= date("Y") ?></div>
 </div>
 
 <script>
