@@ -2,9 +2,17 @@
 
 define('TICKET_FILE', __DIR__ . '/../data/tickets.json');
 
-// Admin login credentials from env or default
-$ADMIN_USER = getenv('ADMIN_USER') ?: 'admin';
-$ADMIN_PASS = getenv('ADMIN_PASS') ?: 'password123';
+// Senarai pengguna: username => password
+$ADMIN_USERS = [
+    'admin' => 'admin123',
+    'faiz' => '123',
+    'support' => 'helpdesk'
+];
+
+function check_login($username, $password) {
+    global $ADMIN_USERS;
+    return isset($ADMIN_USERS[$username]) && $ADMIN_USERS[$username] === $password;
+}
 
 function load_tickets() {
     if (!file_exists(TICKET_FILE)) {
@@ -24,11 +32,7 @@ function save_tickets($tickets) {
 
 function is_logged_in() {
     return !empty($_SESSION['logged_in']);
-}
 
-function check_login($username, $password) {
-    global $ADMIN_USER, $ADMIN_PASS;
-    return $username === $ADMIN_USER && $password === $ADMIN_PASS;
 }
 
 function create_ticket($subject, $content) {
