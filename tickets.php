@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'includes/functions.php';
-//require_login();
+require_login();
 
 $file = 'data/tickets.json';
 $tickets = [];
