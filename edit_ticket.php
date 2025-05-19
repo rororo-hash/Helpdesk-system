@@ -22,53 +22,74 @@ if (!$ticket) {
 
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $case_id = trim($_POST['case_id'] ?? '');
+    $location = trim($_POST['location'] ?? '');
+    $part_status = trim($_POST['part_status'] ?? '');
     $subject = trim($_POST['subject'] ?? '');
-    $content = trim($_POST['content'] ?? '');
-    $status = $_POST['status'] ?? 'open';
-    if ($subject === '') {
-        $errors[] = "Subject is required.";
-    }
-    if ($content === '') {
-        $errors[] = "Content is required.";
-    }
+    $description = trim($_POST['description'] ?? '');
+    $status = $_POST['status'] ?? 'Baru';
+
+    if ($case_id === '') $errors[] = "Case ID diperlukan.";
+    if ($location === '') $errors[] = "Lokasi diperlukan.";
+    if ($subject === '') $errors[] = "Subjek diperlukan.";
+    if ($description === '') $errors[] = "Keterangan diperlukan.";
+
     if (!$errors) {
-        update_ticket($id, $subject, $content, $status);
+        update_ticket($id, $case_id, $location, $part_status, $subject, $description, $status);
         header("Location: tickets.php");
         exit();
     }
 }
-
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
-    <meta charset="UTF-8" />
-    <title>Edit Ticket</title>
+    <meta charset="UTF-8">
+    <title>Edit Tiket</title>
 </head>
 <body>
-    <h1>Edit Ticket #<?php echo htmlspecialchars($id) ?></h1>
+    <h1>Edit Tiket #<?= htmlspecialchars($id) ?></h1>
+
     <?php if ($errors): ?>
         <ul style="color:red;">
             <?php foreach ($errors as $err): ?>
-                <li><?php echo htmlspecialchars($err) ?></li>
+                <li><?= htmlspecialchars($err) ?></li>
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-    <form method="post" action="edit_ticket.php?id=<?php echo urlencode($id) ?>">
-        <label>Subject:<br>
-            <input type="text" name="subject" size="50" required value="<?php echo htmlspecialchars($ticket['subject']) ?>">
+
+    <form method="post" action="edit_ticket.php?id=<?= urlencode($id) ?>">
+        <label>Case ID:<br>
+            <input type="text" name="case_id" value="<?= htmlspecialchars($ticket['case_id'] ?? '') ?>" required>
         </label><br><br>
-        <label>Content:<br>
-            <textarea name="content" rows="10" cols="50" required><?php echo htmlspecialchars($ticket['content']) ?></textarea>
+
+        <label>Lokasi:<br>
+            <input type="text" name="location" value="<?= htmlspecialchars($ticket['location'] ?? '') ?>" required>
         </label><br><br>
+
+        <label>Status Part:<br>
+            <input type="text" name="part_status" value="<?= htmlspecialchars($ticket['part_status'] ?? '') ?>">
+        </label><br><br>
+
+        <label>Subjek:<br>
+            <input type="text" name="subject" value="<?= htmlspecialchars($ticket['subject']) ?>" required>
+        </label><br><br>
+
+        <label>Keterangan:<br>
+            <textarea name="description" rows="8" cols="60" required><?= htmlspecialchars($ticket['description']) ?></textarea>
+        </label><br><br>
+
         <label>Status:<br>
             <select name="status">
-                <option value="open" <?php if ($ticket['status'] === 'open') echo 'selected' ?>>Open</option>
-                <option value="closed" <?php if ($ticket['status'] === 'closed') echo 'selected' ?>>Closed</option>
+                <option value="Baru" <?= $ticket['status'] === 'Baru' ? 'selected' : '' ?>>Baru</option>
+                <option value="Dalam Proses" <?= $ticket['status'] === 'Dalam Proses' ? 'selected' : '' ?>>Dalam Proses</option>
+                <option value="Selesai" <?= $ticket['status'] === 'Selesai' ? 'selected' : '' ?>>Selesai</option>
             </select>
         </label><br><br>
-        <button type="submit">Save Changes</button>
+
+        <button type="submit">Simpan Perubahan</button>
     </form>
-    <p><a href="tickets.php">Back to tickets</a></p>
+    <p><a href="tickets.php">Kembali ke Senarai Tiket</a></p>
 </body>
 </html>

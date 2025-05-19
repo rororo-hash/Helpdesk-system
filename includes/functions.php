@@ -15,6 +15,7 @@ function load_tickets() {
     $tickets = json_decode($json, true);
     return is_array($tickets) ? $tickets : [];
 }
+
 function statusColor($status) {
     return match(strtolower($status)) {
         'baru' => 'blue',
@@ -23,6 +24,7 @@ function statusColor($status) {
         default => 'gray'
     };
 }
+
 // Fungsi untuk simpan tiket
 function save_tickets($tickets) {
     file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT));
@@ -48,14 +50,14 @@ function generateTicketId() {
 function create_ticket($case_id, $location, $part_status, $subject, $description) {
     $tickets = load_tickets();
     $tickets[] = [
-        'id' => generateTicketId(),
+        'id' => uniqid(),
         'case_id' => $case_id,
         'location' => $location,
         'part_status' => $part_status,
         'subject' => $subject,
         'description' => $description,
         'status' => 'Baru',
-        'created_at' => date('Y-m-d H:i:s')
+        'created_at' => date('Y-m-d H:i:s'),
     ];
     save_tickets($tickets);
 }
