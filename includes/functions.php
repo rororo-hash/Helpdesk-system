@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 define('TICKET_FILE', __DIR__ . '/../data/tickets.json');
 
