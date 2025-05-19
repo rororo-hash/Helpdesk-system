@@ -1,58 +1,48 @@
 <?php
-session_start();
 require_once 'includes/functions.php';
-require_login();
+session_start();
 
-$file = 'data/tickets.json';
-$tickets = [];
-if (file_exists($file)) {
-    $tickets = json_decode(file_get_contents($file), true);
-    if (!is_array($tickets)) {
-        $tickets = [];
-    }
+if (!is_logged_in()) {
+    header("Location: login.php");
+    exit();
 }
+
+$tickets = load_tickets();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Senarai Tiket</title>
+    <meta charset="UTF-8" />
+    <title>Helpdesk Tickets</title>
     <style>
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #4f46e5; color: white; }
-        a { text-decoration: none; color: #4f46e5; }
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 0.5em; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .closed { color: gray; text-decoration: line-through; }
+        a.button { padding: 0.3em 0.7em; background: #28a745; color: white; text-decoration: none; border-radius: 4px; }
+        a.button.close { background: #dc3545; }
     </style>
 </head>
 <body>
-    <h2>Senarai Tiket</h2>
-    <a href="new_ticket.php">+ Buat Tiket Baharu</a><br><br>
+    <h1>Helpdesk Tickets</h1>
+    <p><a href="create_ticket.php" class="button">Create New Ticket</a> | <a href="logout.php">Logout</a></p>
     <table>
-        <thead>
-            <tr>
-                <th>Case ID</th>
-                <th>Subjek</th>
-                <th>Lokasi</th>
-                <th>Status Part</th>
-                <th>Tarikh</th>
-                <th>Status</th>
+        <tr><th>ID</th><th>Subject</th><th>Status</th><th>Created</th><th>Actions</th></tr>
+        <?php foreach ($tickets as $ticket): ?>
+            <tr class="<?php echo $ticket['status'] === 'closed' ? 'closed' : '' ?>">
+                <td><?php echo htmlspecialchars($ticket['id']) ?></td>
+                <td><?php echo htmlspecialchars($ticket['subject']) ?></td>
+                <td><?php echo htmlspecialchars($ticket['status']) ?></td>
+                <td><?php echo htmlspecialchars($ticket['created_at']) ?></td>
+                <td>
+                    <a href="edit_ticket.php?id=<?php echo urlencode($ticket['id']) ?>" class="button">Edit</a>
+                    <?php if ($ticket['status'] !== 'closed'): ?>
+                    <a href="close_ticket.php?id=<?php echo urlencode($ticket['id']) ?>" class="button close" onclick="return confirm('Are you sure to close this ticket?')">Close</a>
+                    <?php endif; ?>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php if (empty($tickets)): ?>
-                <tr><td colspan="6" style="text-align:center;">Tiada tiket ditemui.</td></tr>
-            <?php else: ?>
-                <?php foreach ($tickets as $t): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($t['case_id']) ?></td>
-                        <td><?= htmlspecialchars($t['subject']) ?></td>
-                        <td><?= htmlspecialchars($t['location']) ?></td>
-                        <td><?= htmlspecialchars($t['part_status']) ?></td>
-                        <td><?= htmlspecialchars($t['created_at']) ?></td>
-                        <td><?= htmlspecialchars($t['status']) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </tbody>
+        <?php endforeach; ?>
     </table>
 </body>
 </html>
