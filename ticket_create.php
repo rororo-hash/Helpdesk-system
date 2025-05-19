@@ -6,12 +6,18 @@ require_once 'includes/functions.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subject = $_POST['subject'] ?? '';
     $description = $_POST['description'] ?? '';
+    $case_id = $_POST['case_id'] ?? '';
+    $location = $_POST['location'] ?? '';
+    $part_status = $_POST['part_status'] ?? '';
 
-    if ($subject && $description) {
+    if ($subject && $description && $case_id && $location && $part_status) {
         $tickets = getTickets();
 
         $newTicket = [
             'id' => generateTicketId(),
+            'case_id' => $case_id,
+            'location' => $location,
+            'part_status' => $part_status,
             'subject' => $subject,
             'description' => $description,
             'status' => 'Baru',
@@ -24,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: dashboard.php');
         exit;
     } else {
-        $error = "Subjek dan penerangan diperlukan.";
+        $error = "Semua maklumat diperlukan.";
     }
 }
 ?>
@@ -36,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h2>Tambah Tiket Baru</h2>
 <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
 <form method="post">
+    Case ID: <input type="text" name="case_id" required><br><br>
+    Lokasi: <input type="text" name="location" required><br><br>
+    Status Part: <input type="text" name="part_status" required><br><br>
     Subjek: <input type="text" name="subject" required><br><br>
     Penerangan:<br>
     <textarea name="description" rows="5" cols="50" required></textarea><br><br>
