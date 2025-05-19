@@ -1,33 +1,45 @@
 <?php
 session_start();
+require_once 'includes/functions.php';
 
-$admin_user = 'admin';
-$admin_pass = 'password123';
+if (is_logged_in()) {
+    header("Location: tickets.php");
+    exit();
+}
 
+$errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if ($username === $admin_user && $password === $admin_pass) {
-        $_SESSION['admin'] = true;
-        header('Location: dashboard.php');
-        exit;
+    $user = $_POST['username'] ?? '';
+    $pass = $_POST['password'] ?? '';
+    if (check_login($user, $pass)) {
+        $_SESSION['logged_in'] = true;
+        header("Location: tickets.php");
+        exit();
     } else {
-        $error = "Login gagal!";
+        $errors[] = "Invalid username or password.";
     }
 }
-?>
 
+?>
 <!DOCTYPE html>
-<html>
-<head><title>Login Admin</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login - Helpdesk</title>
+</head>
 <body>
-<h2>Login Admin</h2>
-<?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-<form method="post">
-    Username: <input type="text" name="username"><br>
-    Password: <input type="password" name="password"><br>
-    <button type="submit">Login</button>
-</form>
+    <h1>Admin Login</h1>
+    <?php if ($errors): ?>
+        <ul style="color:red;">
+            <?php foreach ($errors as $err): ?>
+                <li><?php echo htmlspecialchars($err) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+    <form method="post" action="login.php">
+        <label>Username: <input type="text" name="username" required></label><br><br>
+        <label>Password: <input type="password" name="password" required></label><br><br>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
