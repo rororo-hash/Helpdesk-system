@@ -16,29 +16,32 @@ function load_tickets() {
     return is_array($tickets) ? $tickets : [];
 }
 
-function statusColor($status) {
-    return match(strtolower($status)) {
-        'baru' => 'blue',
-        'selesai' => 'green',
-        'dalam proses' => 'orange',
-        default => 'gray'
-    };
-}
-
 // Fungsi untuk simpan tiket
 function save_tickets($tickets) {
     file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT));
 }
 
-// Semak login
+// Fungsi untuk semak login
 function is_logged_in() {
-    return !empty($_SESSION['logged_in']);
+    return !empty($_SESSION['admin']);
 }
 
 // Semak maklumat login admin
 function check_login($username, $password) {
     global $ADMIN_USER, $ADMIN_PASS;
-    return $username === $ADMIN_USER && $password === $ADMIN_PASS;
+    if ($username === $ADMIN_USER && $password === $ADMIN_PASS) {
+        $_SESSION['admin'] = true;
+        return true;
+    }
+    return false;
+}
+
+// Fungsi untuk logout
+function logout() {
+    $_SESSION = [];
+    session_destroy();
+    header("Location: login.php");
+    exit;
 }
 
 // Jana ID unik
@@ -62,7 +65,7 @@ function create_ticket($case_id, $location, $part_status, $subject, $description
     save_tickets($tickets);
 }
 
-// Kemaskini tiket sedia ada
+// Kemaskini tiket
 function update_ticket($id, $case_id, $location, $part_status, $subject, $description, $status) {
     $tickets = load_tickets();
     foreach ($tickets as &$ticket) {
@@ -89,4 +92,32 @@ function close_ticket($id) {
         }
     }
     save_tickets($tickets);
+}
+
+// Padam tiket
+function delete_ticket($id) {
+    $tickets = load_tickets();
+    $tickets = array_filter($tickets, fn($t) => $t['id'] !== $id);
+    save_tickets(array_values($tickets)); // reindex semula
+}
+
+// Dapatkan tiket ikut ID
+function get_ticket_by_id($id) {
+    $tickets = load_tickets();
+    foreach ($tickets as $ticket) {
+        if ($ticket['id'] === $id) {
+            return $ticket;
+        }
+    }
+    return null;
+}
+
+// Warna status
+function statusColor($status) {
+    return match(strtolower($status)) {
+        'baru' => 'blue',
+        'selesai' => 'green',
+        'dalam proses' => 'orange',
+        default => 'gray'
+    };
 }

@@ -3,7 +3,12 @@ session_start();
 require_once 'includes/auth.php';
 require_once 'includes/functions.php';
 
-$tickets = load_tickets(); // atau getTickets(), ikut apa yang anda ada
+if (!is_logged_in()) {
+    header("Location: login.php");
+    exit();
+}
+
+$tickets = load_tickets();
 
 $search = $_GET['search'] ?? '';
 if ($search) {
@@ -16,30 +21,23 @@ if ($search) {
 
 usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['created_at']));
 ?>
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
     <meta charset="UTF-8" />
     <title>Dashboard Tiket</title>
     <style>
+        /* (Sama macam style yang anda dah guna tadi) */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background: #fafafa;
         }
-        h2 {
-            color: #333;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        form {
-            margin-bottom: 20px;
-        }
+        h2 { color: #333; }
+        a { text-decoration: none; color: #007BFF; }
+        a:hover { text-decoration: underline; }
+        form { margin-bottom: 20px; }
         input[type="text"] {
             padding: 6px;
             width: 250px;
@@ -54,9 +52,7 @@ usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['create
             cursor: pointer;
             border-radius: 4px;
         }
-        button:hover {
-            background-color: #0056b3;
-        }
+        button:hover { background-color: #0056b3; }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -69,12 +65,8 @@ usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['create
             text-align: left;
             vertical-align: middle;
         }
-        th {
-            background-color: #f4f4f4;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+        th { background-color: #f4f4f4; }
+        tr:hover { background-color: #f1f1f1; }
         .status-Baru {
             color: white;
             background-color: #007BFF;
@@ -107,12 +99,8 @@ usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['create
         }
         /* Responsive */
         @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-            th {
-                display: none;
-            }
+            table, thead, tbody, th, td, tr { display: block; }
+            th { display: none; }
             td {
                 position: relative;
                 padding-left: 50%;
@@ -129,9 +117,7 @@ usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['create
                 content: attr(data-label);
                 color: #333;
             }
-            td:last-child {
-                border-bottom: 2px solid #007BFF;
-            }
+            td:last-child { border-bottom: 2px solid #007BFF; }
         }
     </style>
 </head>
@@ -162,17 +148,18 @@ usort($tickets, fn($a, $b) => strtotime($b['created_at']) - strtotime($a['create
             </thead>
             <tbody>
                 <?php foreach ($tickets as $ticket): ?>
-                <?php
-                    $statusClass = str_replace(' ', '', $ticket['status']); // hilangkan space untuk class CSS
-                ?>
+                <?php $statusClass = str_replace(' ', '', $ticket['status']); ?>
                 <tr>
                     <td data-label="ID"><?= htmlspecialchars($ticket['id']) ?></td>
                     <td data-label="Case ID"><?= htmlspecialchars($ticket['case_id'] ?? '-') ?></td>
                     <td data-label="Lokasi"><?= htmlspecialchars($ticket['location'] ?? '-') ?></td>
                     <td data-label="Status Part"><?= htmlspecialchars($ticket['part_status'] ?? '-') ?></td>
                     <td data-label="Subjek"><?= htmlspecialchars($ticket['subject']) ?></td>
-                    <td data-label="Status"><span class="status-<?= htmlspecialchars($statusClass) ?>">
-                        <?= htmlspecialchars($ticket['status']) ?></span></td>
+                    <td data-label="Status">
+                        <span class="status-<?= htmlspecialchars($statusClass) ?>">
+                            <?= htmlspecialchars($ticket['status']) ?>
+                        </span>
+                    </td>
                     <td data-label="Tarikh"><?= htmlspecialchars($ticket['created_at']) ?></td>
                     <td data-label="Tindakan">
                         <a href="edit_ticket.php?id=<?= urlencode($ticket['id']) ?>">Edit</a> |
