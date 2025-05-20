@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once 'includes/auth.php';
-require_once 'includes/functions.php';
+require_once 'includes/auth.php';  // pastikan dalam ni ada function require_login()
+require_once 'includes/functions.php'; // pastikan load_tickets() dan save_tickets() ada
 
 // Pastikan admin telah login
 require_login();
@@ -13,19 +13,18 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 $tickets = load_tickets();
-$updated = false;
+$found = false;
 
-// Cari dan buang tiket berdasarkan ID
 foreach ($tickets as $index => $ticket) {
     if ($ticket['id'] === $id) {
         unset($tickets[$index]);
-        $updated = true;
+        $found = true;
         break;
     }
 }
 
-if ($updated) {
-    // Susun semula array supaya index tersusun
+if ($found) {
+    // Susun semula indeks
     $tickets = array_values($tickets);
     save_tickets($tickets);
     $_SESSION['message'] = "Tiket telah dipadam.";
@@ -35,4 +34,3 @@ if ($updated) {
 
 header('Location: dashboard.php');
 exit;
-?>
