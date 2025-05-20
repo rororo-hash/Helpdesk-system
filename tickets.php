@@ -1,7 +1,12 @@
 <?php
-require_once 'includes/auth.php';          // ← Tambahan penting
+ob_start(); // Elak output sebelum header
+
+require_once 'includes/auth.php';
 require_once 'includes/functions.php';
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!is_logged_in()) {
     header("Location: login.php");
@@ -165,7 +170,7 @@ function statusClass($status) {
         <?php foreach ($ticketsPage as $ticket): 
             $statusClass = statusClass($ticket['status']);
             ?>
-            <tr class="<?php echo ($ticket['status'] === 'closed') ? 'closed' : '' ?>">
+            <tr class="<?= $ticket['status'] === 'closed' ? 'closed' : '' ?>">
                 <td data-label="ID"><?= htmlspecialchars($ticket['id']) ?></td>
                 <td data-label="Subjek"><?= htmlspecialchars($ticket['subject']) ?></td>
                 <td data-label="Status"><span class="<?= htmlspecialchars($statusClass) ?>"><?= htmlspecialchars($ticket['status']) ?></span></td>
@@ -189,5 +194,6 @@ function statusClass($status) {
         <?php endif; ?>
     </div>
     <?php endif; ?>
+<?php ob_end_flush(); ?>
 </body>
 </html>
