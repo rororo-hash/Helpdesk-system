@@ -18,7 +18,7 @@ function load_tickets() {
 
 // Fungsi untuk simpan tiket
 function save_tickets($tickets) {
-    file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT));
+    return file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT)) !== false;
 }
 
 // Fungsi untuk semak login
@@ -53,7 +53,7 @@ function generateTicketId() {
 function create_ticket($case_id, $location, $part_status, $subject, $description) {
     $tickets = load_tickets();
     $tickets[] = [
-        'id' => uniqid(),
+        'id' => generateTicketId(),
         'case_id' => $case_id,
         'location' => $location,
         'part_status' => $part_status,
@@ -62,7 +62,7 @@ function create_ticket($case_id, $location, $part_status, $subject, $description
         'status' => 'Baru',
         'created_at' => date('Y-m-d H:i:s'),
     ];
-    save_tickets($tickets);
+    return save_tickets($tickets);
 }
 
 // Kemaskini tiket
@@ -79,7 +79,7 @@ function update_ticket($id, $case_id, $location, $part_status, $subject, $descri
             break;
         }
     }
-    save_tickets($tickets);
+    return save_tickets($tickets);
 }
 
 // Tutup tiket
@@ -91,14 +91,14 @@ function close_ticket($id) {
             break;
         }
     }
-    save_tickets($tickets);
+    return save_tickets($tickets);
 }
 
 // Padam tiket
 function delete_ticket($id) {
     $tickets = load_tickets();
     $tickets = array_filter($tickets, fn($t) => $t['id'] !== $id);
-    save_tickets(array_values($tickets)); // reindex semula
+    return save_tickets(array_values($tickets)); // reindex semula
 }
 
 // Dapatkan tiket ikut ID
