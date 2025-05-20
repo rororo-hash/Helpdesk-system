@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/auth.php';          // ← Tambahan penting
 require_once 'includes/functions.php';
 session_start();
 
@@ -79,7 +80,6 @@ function statusClass($status) {
             text-transform: uppercase;
             display: inline-block;
         }
-        /* Responsive styles */
         @media (max-width: 768px) {
             table, thead, tbody, th, td, tr {
                 display: block;
@@ -121,7 +121,6 @@ function statusClass($status) {
                 padding: 0.3em 0.6em;
             }
         }
-        /* Pagination */
         .pagination {
             margin-top: 1em;
             text-align: center;
