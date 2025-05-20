@@ -21,11 +21,6 @@ function save_tickets($tickets) {
     return file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT)) !== false;
 }
 
-// Fungsi untuk semak login
-function is_logged_in() {
-    return !empty($_SESSION['admin']);
-}
-
 // Semak maklumat login admin
 function check_login($username, $password) {
     global $ADMIN_USER, $ADMIN_PASS;
