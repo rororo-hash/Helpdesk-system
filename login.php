@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pass = $_POST['password'] ?? '';
     if (check_login($user, $pass)) {
         $_SESSION['logged_in'] = true;
-        header("Location: tickets.php");
+        header("Location: dashboard.php");
         exit();
     } else {
         $error = "Nama pengguna atau kata laluan salah.";
