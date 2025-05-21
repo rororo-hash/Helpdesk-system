@@ -10,63 +10,113 @@
         "created_at": "2025-05-20 14:36:15"
     },
     {
-        "id": "TIKET-682cabdd7f84b",
+        "id": "TIKET-682cab50a2f4b",
+        "case_id": "25258753",
+        "location": "JIM KDN ALOR SETAR",
+        "part_status": "NO",
+        "subject": "FORMAT PC",
+        "description": "TARIKH: 20\/5\/2025\r\nNO. INSIDEN\t: 25258753\r\nPERKARA\t: MOHON FORMAT OPERATING SISTEM.\r\nBUTIRAN MASALAH\t: WINDOWS CORRUPT\\r\\nBHGN : INTEGRITI\\r\\nTEMPAT : BHGN ADMIN\\r\\nMODEL: LENOVO L14 Gen 2 Type 20X1 20X2 Laptops (ThinkPad)\\r\\nSN: PF3P8PEE\r\nPELAPOR\t: NORAZLAN BIN ABD GHANI\r\nUNIT\/BAHAGIAN\t: BAHAGIAN PENTADBIRAN DAN KEWANGAN \/ JABATAN IMIGRESEN MALAYSIA NEGERI KEDAH\r\nCAWANGAN\t: KEDAH (Jabatan Imigresen Malaysia Negeri Kedah)\r\nTELEFON\t: 047793311 \/ 01114703384\r\nSLA: 1 JAM",
+        "status": "Baru",
+        "created_at": "2025-05-20 12:18:24"
+    },
+    {
+        "id": "TIKET-682cacb5ca302",
         "case_id": "25258557",
         "location": "JIM BELANTIK",
         "part_status": "PENDING",
         "subject": "PC CANT ON",
-        "description": "TARIKH: 19\/5\/2025\r\nNO. INSIDEN\t: 25258557\r\nPERKARA\t: PC FAULTY\r\nBUTIRAN MASALAH\t: Log no.: 25257784 Appointment Date\/ Time: 07\/05\/2025 2pm User\\'s name Agreed on Appointment: Mohd Nor Hafiz Bin Abdullah Onsite Date\/ Time: N\/A Action taken & alat ganti replaced (if any): Spoken to pic Mr.Aiman. He said PC unable to boot window. Show startup repair . Kindly escalate this [dikemaskini 2025-05-09 10:15:49 oleh Mohammed Syakirin Bin Ahmad]\\r\\n===================================\\r\\nSN: PBKS53T (NOMBOR SN TIDAK JELAS)\\r\\nCPU ADA STICKER MESINIAGA\\r\\nMODEL : LENOVO MT-M 2116-CTO\\r\\n LOC: UNIT PEMINDAHAN, TINGKAT 1\r\nPELAPOR\t: MOHD NOR HAFIZ BIN ABDULLAH\r\nCAWANGAN\/BAHAGIAN - NEGERI\t: DEPOT IMIGRESEN BELANTIK - KEDAH\r\nTELEFON\t: 047404444 \/ 0103353711\r\nSLA: 2 JAM\r\n\r\nDAH ORDER PART 20\/5\/2025",
-        "status": "Baru",
-        "created_at": "2025-05-20 18:20:45"
+        "description": "TARIKH: 19\/5\/2025\r\nNO. INSIDEN\t: 25258557\r\nPERKARA\t: PC FAULTY\r\nBUTIRAN MASALAH\t: Log no.: 25257784 Appointment Date\/ Time: 07\/05\/2025 2pm User\\'s name Agreed on Appointment: Mohd Nor Hafiz Bin Abdullah Onsite Date\/ Time: N\/A Action taken & alat ganti replaced (if any): Spoken to pic Mr.Aiman. He said PC unable to boot window. Show startup repair . Kindly escalate this [dikemaskini 2025-05-09 10:15:49 oleh Mohammed Syakirin Bin Ahmad]\\r\\n===================================\\r\\nSN: PBKS53T (NOMBOR SN TIDAK JELAS)\\r\\nCPU ADA STICKER MESINIAGA\\r\\nMODEL : LENOVO MT-M 2116-CTO\\r\\n LOC: UNIT PEMINDAHAN, TINGKAT 1\r\nPELAPOR\t: MOHD NOR HAFIZ BIN ABDULLAH\r\nCAWANGAN\/BAHAGIAN - NEGERI\t: DEPOT IMIGRESEN BELANTIK - KEDAH\r\nTELEFON\t: 047404444 \/ 0103353711\r\nSLA: 2 JAM\r\n\r\nDAH ODER PART : 19\/5\/2025",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 12:24:21"
     },
     {
-        "id": "TIKET-682cb182c3553",
-        "case_id": "111",
-        "location": "11",
-        "part_status": "1111",
-        "subject": "11",
-        "description": "11",
-        "status": "Baru",
-        "created_at": "2025-05-20 18:44:50"
+        "id": "TIKET-682cad129597d",
+        "case_id": "25258360",
+        "location": "JIM BELANTIK",
+        "part_status": "PENDING",
+        "subject": "PRINTER-FUSER",
+        "description": "TARIKH: 15\/5\/2025\r\nNO. INSIDEN\t: 25258360\r\nPERKARA\t: MASALAH ROLLER PRINTER (OKI B431DN)\r\nBUTIRAN MASALAH\t: print kertas berlipat dan ink bertompok hitam\\r\\nmodel: oki b431dn\\r\\nsn: ak3b026533a0\\r\\nloc: kaunter terima okt pejabat rekod dan pemindahan, jim depot belantik\r\nPELAPOR\t: MOHD KHAIRIL BIN ABD MANAN\r\nUNIT\/BAHAGIAN\t: KOMANDAN \/ DEPOT IMIGRESEN BELANTIK\r\nCAWANGAN\t: KEDAH (Depot Imigresen Belantik)\r\nTELEFON\t: 047404444 \/ 0107779037\r\nSLA: 2 JAM",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 12:25:54"
     },
     {
-        "id": "TIKET-682cb188d9e5c",
-        "case_id": "23213",
-        "location": "213213213",
-        "part_status": "21321321",
-        "subject": "3212133",
-        "description": "21321312",
-        "status": "Baru",
-        "created_at": "2025-05-20 18:44:56"
+        "id": "TIKET-682cad5f9bb98",
+        "case_id": "25258229",
+        "location": "JIM PADANG BESAR",
+        "part_status": "PENDING",
+        "subject": "MONITOR FAULTY",
+        "description": "TARIKH: 13\/5\/2025\r\nNO. INSIDEN\t: 25258229\r\nPERKARA\t: MONITOR FAULTY\r\nBUTIRAN MASALAH\t: Skrin monitor berbelang dan bergaris-garis.\\r\\nS\/N Monitor: CNC632P82G\\r\\nModel: HP ELITE DESK 800G2\\r\\nsn cpu: SGH638RTCJ\\r\\nLokasi: Meja Penyelia, Unit Pasport Dan Dokumentasi, Aras bawah, Kompleks ICQS Padang Besar\r\nPELAPOR\t: NORLIZAWATI BINTI MOHD NOOR\r\nUNIT\/BAHAGIAN\t: BAHAGIAN TEKNOLOGI MAKLUMAT & REKOD (PADANG BESAR) \/ POS IMIGRESEN PADANG BESAR\r\nCAWANGAN\t: PERLIS\r\nTELEFON\t: 049490350 \/ 0123748144\r\n\r\nDAH ORDER PART 13\/5\/2025",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 12:27:11"
     },
     {
-        "id": "TIKET-682cb18e398c5",
-        "case_id": "213213",
-        "location": "213",
-        "part_status": "23213213",
-        "subject": "12321",
-        "description": "321321",
-        "status": "Baru",
-        "created_at": "2025-05-20 18:45:02"
+        "id": "TIKET-682cadf65022e",
+        "case_id": "25258541",
+        "location": "JIM BELANTIK",
+        "part_status": "PENDING",
+        "subject": "PC CANT ON",
+        "description": "TARIKH : 18\/05\/2025\r\nNO. INSIDEN\t: 25258541\r\nPERKARA\t: PC TIDAK BOLEH ON\r\nBUTIRAN MASALAH\t: PC tidak boleh ON\\r\\nModel : Lenovo MT-M 2116 -CTO\\r\\nSN - PBKF53T\\r\\nLOC - PEJABAT REKOD DAN PEMINDAHAN\r\nPELAPOR\t: MOHD NOR HAFIZ BIN ABDULLAH\r\nUNIT\/BAHAGIAN\t: KOMANDAN \/ DEPOT IMIGRESEN BELANTIK\r\nCAWANGAN\t: KEDAH\r\nTELEFON\t: 047404444 \/ 0103353711\r\nSLA : 2 JAM\r\n\r\nDAH ORDER PART 19\/5",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 12:29:42"
     },
     {
-        "id": "TIKET-682cb1935a98a",
-        "case_id": "21321321",
-        "location": "3213213",
-        "part_status": "213213",
-        "subject": "21312",
-        "description": "3213",
-        "status": "Baru",
-        "created_at": "2025-05-20 18:45:07"
+        "id": "TIKET-682cae4eea8c7",
+        "case_id": "25258191",
+        "location": "JIM PADANG BESAR",
+        "part_status": "PENDING",
+        "subject": "MONITOR FAULTY",
+        "description": "TARIKH: 13\/5\/2025\r\nNO. INSIDEN\t: 25258191\r\nPERKARA\t: SKRIN BERUBAH WARNA\r\nBUTIRAN MASALAH\t: MODEL LENOVO M80 S\\r\\nS\/N PC2BMT93\\r\\n\\r\\nBAHAGIAN SUMBER MANUSIA\\r\\nTINGKAT 2 BANGUNAN KDN\r\nPELAPOR\t: SHARLIZA BINTI MD SHARIF\r\nUNIT\/BAHAGIAN\t: BAHAGIAN TEKNOLOGI MAKLUMAT & REKOD \/ JABATAN IMIGRESEN MALAYSIA NEGERI KEDAH\r\nCAWANGAN\t: KEDAH (Jabatan Imigresen Malaysia Negeri Kedah)\r\nTELEFON\t: 047333302 \/ 0124373659\r\nSLA: 1 JAM\r\n\r\nDAH ODER PART",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 12:31:10"
     },
     {
-        "id": "TIKET-682cb19995f7b",
-        "case_id": "132213",
-        "location": "21321321",
-        "part_status": "213213",
-        "subject": "213213",
-        "description": "21312",
+        "id": "TIKET-682cae97407de",
+        "case_id": "25258096",
+        "location": "JIM LANGKAWI",
+        "part_status": "NO",
+        "subject": "FORMAT PC",
+        "description": "TARIKH: 11\/5\/2025\r\nNO. INSIDEN\t: 25258096\r\nPERKARA\t: REQUEST FORMAT PC\r\nBUTIRAN MASALAH\t: REQUEST FOR CHANGE OPERATING SYSTEM FROM WINDOWS 7 TO WINDOWS 10\\r\\nLOCATION COUNTER 7 ARRIVAL\\r\\nMODEL LENOVO 3392\\r\\nSERIAL NUMBER: PBV230G\\r\\nIP ADDRESS 172.24.114.93\\r\\nPC ID 93\\r\\nloc: kaunter 7 arrival, lta langkawi \\r\\n\r\nPELAPOR\t: AHMAD SHAZMY BIN ZUBIR\r\nUNIT\/BAHAGIAN\t: KETUA IMIGRESEN \/ PEJABAT IMIGRESEN LANGKAWI\r\nCAWANGAN\t: KEDAH (Pos Imigresen Lapangan Terbang Antarabangsa Langkawi)\r\nTELEFON\t: 049694400 \/ 01112429636\r\nSLA: 2 JAM\r\n\r\n\r\nCASE ID: 25258096\r\nDATE: 21\/5\/2025\r\nRE\/FE NAME : ROAFANDI \r\nRE\/FE LOCATION: PERLIS \r\nUSER LOCATION: JIM LTA LANGKAWI\r\nTAKEN TIME: 0800\r\nCOMPLETED: 0900\r\nACTION TAKEN: REINSTALL WINDOWS AND RECONFIGURE STANDART APPLICATION. PC TESTED GOOD\r\nPROVIDE LOANER: NO\r\nREASON (IF NO): \r\nSTATUS: COMPLETED",
+        "status": "Selesai",
+        "created_at": "2025-05-20 12:32:23"
+    },
+    {
+        "id": "TIKET-682caf4dcc3bc",
+        "case_id": "25258095",
+        "location": "JIM LANGKAWI",
+        "part_status": "DELIVERED",
+        "subject": "MONITOR FAULTY",
+        "description": "TARIKIH: 11\/5\/2025\r\nNO. INSIDEN\t: 25258095\r\nPERKARA\t: MONITOR BERGARIS\r\nBUTIRAN MASALAH\t: user minta urgent\\r\\nMonitor Bergaris\\r\\nModel Lenovo 1453-HB1\\r\\nsiri number monitor V199663\\r\\nPC siri number\\r\\n:PBV149E\\r\\nLokasi Bahagian Penguatkuasa, tingkat 2, jim langkawi\r\nPELAPOR\t: AHMAD SHAZMY BIN ZUBIR\r\nUNIT\/BAHAGIAN\t: KETUA IMIGRESEN \/ PEJABAT IMIGRESEN LANGKAWI\r\nCAWANGAN\t: KEDAH (Pejabat Imigresen Langkawi)\r\nTELEFON\t: 049694400 \/ 01112429636\r\nSLA: 2 JAM",
+        "status": "Selesai",
+        "created_at": "2025-05-20 12:35:25"
+    },
+    {
+        "id": "TIKET-682d420f81f27",
+        "case_id": "25258228",
+        "location": "JIM PADANG BESAR",
+        "part_status": "PENDING",
+        "subject": "PRINTER-FUSER",
+        "description": "TARIKH: 13\/5\/2025\r\nNO. INSIDEN\t: 25258228\r\nPERKARA\t: PRINTER TIDAK BERFUNGSI\r\nBUTIRAN MASALAH\t: S\/N Printer: AK58036941A0\\r\\nModel: OKI B431DN\\r\\nLokasi: Unit Pasport Dan Dokumentasi, Aras Bawah, Kompleks ICQS Padang Besar.\r\nPELAPOR\t: NORLIZAWATI BINTI MOHD NOOR\r\nUNIT\/BAHAGIAN\t: BAHAGIAN TEKNOLOGI MAKLUMAT & REKOD (PADANG BESAR) \/ POS IMIGRESEN PADANG BESAR\r\nCAWANGAN\t: PERLIS\r\nTELEFON\t: 049490350 \/ 0123748144\r\n\r\nPART ORDER - 21\/5\/2025",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 23:01:35"
+    },
+    {
+        "id": "TIKET-682d42eeb9d91",
+        "case_id": "25258095",
+        "location": "JIM LANGKAWI",
+        "part_status": "PENDING",
+        "subject": "MONITOR FAULTY",
+        "description": "TARIKIH: 11\/5\/2025\r\nNO. INSIDEN\t: 25258095\r\nPERKARA\t: MONITOR BERGARIS\r\nBUTIRAN MASALAH\t: user minta urgent\\r\\nMonitor Bergaris\\r\\nModel Lenovo 1453-HB1\\r\\nsiri number monitor V199663\\r\\nPC siri number\\r\\n:PBV149E\\r\\nLokasi Bahagian Penguatkuasa, tingkat 2, jim langkawi\r\nPELAPOR\t: AHMAD SHAZMY BIN ZUBIR\r\nUNIT\/BAHAGIAN\t: KETUA IMIGRESEN \/ PEJABAT IMIGRESEN LANGKAWI\r\nCAWANGAN\t: KEDAH (Pejabat Imigresen Langkawi)\r\nTELEFON\t: 049694400 \/ 01112429636\r\nSLA: 2 JAM\r\n\r\n\r\nPART DAH ORDER  - 15\/5\/2025",
         "status": "Baru",
-        "created_at": "2025-05-20 18:45:13"
+        "created_at": "2025-05-20 23:05:18"
+    },
+    {
+        "id": "TIKET-682d43fc6e0b5",
+        "case_id": "25258360",
+        "location": "JIM BELANTIK",
+        "part_status": "PENDING",
+        "subject": "PRINTER-FUSER",
+        "description": "TARIKH: 15\/5\/2025\r\nNO. INSIDEN\t: 25258360\r\nPERKARA\t: MASALAH ROLLER PRINTER (OKI B431DN)\r\nBUTIRAN MASALAH\t: print kertas berlipat dan ink bertompok hitam\\r\\nmodel: oki b431dn\\r\\nsn: ak3b026533a0\\r\\nloc: kaunter terima okt pejabat rekod dan pemindahan, jim depot belantik\r\nPELAPOR\t: MOHD KHAIRIL BIN ABD MANAN\r\nUNIT\/BAHAGIAN\t: KOMANDAN \/ DEPOT IMIGRESEN BELANTIK\r\nCAWANGAN\t: KEDAH (Depot Imigresen Belantik)\r\nTELEFON\t: 047404444 \/ 0107779037\r\nSLA: 2 JAM\r\n\r\nPART ORDER 21\/5\/2025\r\n\r\n\r\nCASE ID: 25258360\r\nDATE: 18\/5\/2025\r\nRE\/FE NAME : ROAFANDI \r\nRE\/FE LOCATION: PERLIS \r\nUSER LOCATION: JIM BELANTIK\r\nTAKEN TIME: 1000\r\nCOMPLETED: 1100\r\nACTION TAKEN: FOUND OUT FUSER FAULTY . PENDING FOR REPLACEMENT\r\nPROVIDE LOANER: YES\r\nREASON (IF NO): \r\nSTATUS: PENDING FOR PART",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 23:09:48"
     }
 ]
