@@ -1,14 +1,15 @@
 <?php
 session_start();
 require_once 'includes/functions.php';
+require_once 'includes/auth.php'; // Pastikan anda ada auth.php untuk kawalan login
 
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = $_POST['username'] ?? '';
-    $pass = $_POST['password'] ?? '';
+    $user = trim($_POST['username'] ?? '');
+    $pass = trim($_POST['password'] ?? '');
+
     if (check_login($user, $pass)) {
-        $_SESSION['logged_in'] = true;
         header("Location: dashboard.php");
         exit();
     } else {
@@ -23,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login Admin - Helpdesk</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Gaya sama seperti sebelum ini */
         * { box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;

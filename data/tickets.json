@@ -1,1 +1,72 @@
-[]
+[
+    {
+        "id": "TIKET-682c773fc1ef5",
+        "case_id": "25258793",
+        "location": "JIM KDN ALOR SETAR",
+        "part_status": "PENDING",
+        "subject": "PC",
+        "description": "TARIKH: 20\/5\/2025\r\nNO. INSIDEN\t: 25258793\r\nPERKARA\t: PC NO DISPLAY\r\nBUTIRAN MASALAH\t: PC Lenovo 3392 (Mecacom)\\r\\nSN PBV389C\\r\\nSuspect board faulty\\r\\nUnit Admn Sumber Manusia, Tingkat 2\r\nPELAPOR\t: MOHD FAIZ BIN ZALAUDIN\r\nUNIT\/BAHAGIAN\t: BAHAGIAN TEKNOLOGI MAKLUMAT & REKOD \/ JABATAN IMIGRESEN MALAYSIA NEGERI KEDAH\r\nCAWANGAN\t: KEDAH (\tJabatan Imigresen Malaysia Negeri Kedah)\r\nTELEFON\t: 0124436826 \/ 0124436826\r\nSLA: 1 JAM\r\n\r\n- DAH ODER PART : 20\/5\/2025",
+        "status": "Dalam Proses",
+        "created_at": "2025-05-20 14:36:15"
+    },
+    {
+        "id": "TIKET-682cabdd7f84b",
+        "case_id": "25258557",
+        "location": "JIM BELANTIK",
+        "part_status": "PENDING",
+        "subject": "PC CANT ON",
+        "description": "TARIKH: 19\/5\/2025\r\nNO. INSIDEN\t: 25258557\r\nPERKARA\t: PC FAULTY\r\nBUTIRAN MASALAH\t: Log no.: 25257784 Appointment Date\/ Time: 07\/05\/2025 2pm User\\'s name Agreed on Appointment: Mohd Nor Hafiz Bin Abdullah Onsite Date\/ Time: N\/A Action taken & alat ganti replaced (if any): Spoken to pic Mr.Aiman. He said PC unable to boot window. Show startup repair . Kindly escalate this [dikemaskini 2025-05-09 10:15:49 oleh Mohammed Syakirin Bin Ahmad]\\r\\n===================================\\r\\nSN: PBKS53T (NOMBOR SN TIDAK JELAS)\\r\\nCPU ADA STICKER MESINIAGA\\r\\nMODEL : LENOVO MT-M 2116-CTO\\r\\n LOC: UNIT PEMINDAHAN, TINGKAT 1\r\nPELAPOR\t: MOHD NOR HAFIZ BIN ABDULLAH\r\nCAWANGAN\/BAHAGIAN - NEGERI\t: DEPOT IMIGRESEN BELANTIK - KEDAH\r\nTELEFON\t: 047404444 \/ 0103353711\r\nSLA: 2 JAM\r\n\r\nDAH ORDER PART 20\/5\/2025",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:20:45"
+    },
+    {
+        "id": "TIKET-682cb182c3553",
+        "case_id": "111",
+        "location": "11",
+        "part_status": "1111",
+        "subject": "11",
+        "description": "11",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:44:50"
+    },
+    {
+        "id": "TIKET-682cb188d9e5c",
+        "case_id": "23213",
+        "location": "213213213",
+        "part_status": "21321321",
+        "subject": "3212133",
+        "description": "21321312",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:44:56"
+    },
+    {
+        "id": "TIKET-682cb18e398c5",
+        "case_id": "213213",
+        "location": "213",
+        "part_status": "23213213",
+        "subject": "12321",
+        "description": "321321",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:45:02"
+    },
+    {
+        "id": "TIKET-682cb1935a98a",
+        "case_id": "21321321",
+        "location": "3213213",
+        "part_status": "213213",
+        "subject": "21312",
+        "description": "3213",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:45:07"
+    },
+    {
+        "id": "TIKET-682cb19995f7b",
+        "case_id": "132213",
+        "location": "21321321",
+        "part_status": "213213",
+        "subject": "213213",
+        "description": "21312",
+        "status": "Baru",
+        "created_at": "2025-05-20 18:45:13"
+    }
+]

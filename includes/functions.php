@@ -1,12 +1,38 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 define('TICKET_FILE', __DIR__ . '/../data/tickets.json');
+define('USER_FILE', __DIR__ . '/../data/users.json');
 
-// Admin login credentials from env or default
-$ADMIN_USER = getenv('ADMIN_USER') ?: 'admin';
-$ADMIN_PASS = getenv('ADMIN_PASS') ?: 'password123';
+// ----------------------
+// Fungsi Login
+// ----------------------
+function check_login($username, $password) {
+    if (!file_exists(USER_FILE)) return false;
 
-// Fungsi untuk baca tiket
+    $users = json_decode(file_get_contents(USER_FILE), true);
+    foreach ($users as $user) {
+        if ($user['username'] === $username && $user['password'] === $password) {
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+            return true;
+        }
+    }
+    return false;
+}
+
+function logout() {
+    $_SESSION = [];
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
+
+// ----------------------
+// Fungsi Tiket
+// ----------------------
 function load_tickets() {
     if (!file_exists(TICKET_FILE)) {
         file_put_contents(TICKET_FILE, json_encode([]));
@@ -16,35 +42,14 @@ function load_tickets() {
     return is_array($tickets) ? $tickets : [];
 }
 
-// Fungsi untuk simpan tiket
 function save_tickets($tickets) {
     return file_put_contents(TICKET_FILE, json_encode($tickets, JSON_PRETTY_PRINT)) !== false;
 }
 
-// Semak maklumat login admin
-function check_login($username, $password) {
-    global $ADMIN_USER, $ADMIN_PASS;
-    if ($username === $ADMIN_USER && $password === $ADMIN_PASS) {
-        $_SESSION['admin'] = true;
-        return true;
-    }
-    return false;
-}
-
-// Fungsi untuk logout
-function logout() {
-    $_SESSION = [];
-    session_destroy();
-    header("Location: login.php");
-    exit;
-}
-
-// Jana ID unik
 function generateTicketId() {
     return uniqid('TIKET-');
 }
 
-// Cipta tiket baru
 function create_ticket($case_id, $location, $part_status, $subject, $description) {
     $tickets = load_tickets();
     $tickets[] = [
@@ -60,7 +65,6 @@ function create_ticket($case_id, $location, $part_status, $subject, $description
     return save_tickets($tickets);
 }
 
-// Kemaskini tiket
 function update_ticket($id, $case_id, $location, $part_status, $subject, $description, $status) {
     $tickets = load_tickets();
     foreach ($tickets as &$ticket) {
@@ -77,7 +81,6 @@ function update_ticket($id, $case_id, $location, $part_status, $subject, $descri
     return save_tickets($tickets);
 }
 
-// Tutup tiket
 function close_ticket($id) {
     $tickets = load_tickets();
     foreach ($tickets as &$ticket) {
@@ -89,14 +92,12 @@ function close_ticket($id) {
     return save_tickets($tickets);
 }
 
-// Padam tiket
 function delete_ticket($id) {
     $tickets = load_tickets();
     $tickets = array_filter($tickets, fn($t) => $t['id'] !== $id);
     return save_tickets(array_values($tickets)); // reindex semula
 }
 
-// Dapatkan tiket ikut ID
 function get_ticket_by_id($id) {
     $tickets = load_tickets();
     foreach ($tickets as $ticket) {
@@ -107,7 +108,6 @@ function get_ticket_by_id($id) {
     return null;
 }
 
-// Warna status
 function statusColor($status) {
     return match(strtolower($status)) {
         'baru' => 'blue',
